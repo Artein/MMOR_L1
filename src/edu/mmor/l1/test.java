@@ -9,4 +9,5 @@ package edu.mmor.l1;
  */
 public class test {
     private double d;
+    sadasdasdasd
 }
