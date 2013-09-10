@@ -1,4 +1,4 @@
-package edu.mmor.l1.Functions.MethodsOfOptimization;
+package edu.mmor.l1.MethodsOfOptimization;
 
 /**
  * Created with IntelliJ IDEA.
