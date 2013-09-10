@@ -1,5 +1,7 @@
 package edu.mmor.l1.MethodsOfOptimization;
 
+import edu.mmor.l1.Functions.Function;
+
 /**
  * Created with IntelliJ IDEA.
  * User: DTSHNICK
@@ -8,5 +10,5 @@ package edu.mmor.l1.MethodsOfOptimization;
  * To change this template use File | Settings | File Templates.
  */
 public interface IMethod {
-    double Method (double a, double b,double eps);
+    double Method (double a, double b,double eps, Function function);
 }

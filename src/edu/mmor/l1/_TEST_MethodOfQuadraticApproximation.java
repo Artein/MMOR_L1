@@ -10,6 +10,7 @@ package edu.mmor.l1;
 public class _TEST_MethodOfQuadraticApproximation {
     public double calculate()
     {
+
         double res = 0.0d;
         x2 = x1 + dx;   // STEP 1
 

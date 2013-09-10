@@ -7,7 +7,10 @@ package edu.mmor.l1.Functions;
  * Time: 18:01
  * To change this template use File | Settings | File Templates.
  */
-public interface IFunction {
-    double Calculate (double x);
+public abstract class Function {
+    public double calculate(double x)
+    {
+        return 0;
+    }
 
 }
