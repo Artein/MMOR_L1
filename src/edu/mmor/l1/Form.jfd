@@ -4,10 +4,11 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq {space :::p, par l {comp comboBox1::l:p::p, comp label1::l:p::p}, space :::p, par l:::p {comp label2:::::x, comp textField1:::::x}, space :::p, par l {comp label3:::p::p, comp textField2:::p:51:p}, space ::17:x}}"
-			"$verticalGroup": "par l {seq {space :::p, par l {seq l {par b {comp label1::b:p::p, comp label2::b:p::p}, space :::p, par b {comp comboBox1::b:p::p, comp textField1::b:p::p, comp textField2::b:p::p}}, comp label3::l:p::p}, space ::214:x}}"
+			"$horizontalGroup": "par l {seq {space :::p, par l:::p {seq {par l {comp comboBox1::l:p::p, comp label1::l:p::p}, space :::p, par l:::p {comp label2:::::x, comp textField1:::::x}, space :::p, par l {comp label3:::p::p, comp textField2:::p:51:p}}, comp button1::l:p::p, comp scrollPane1::l:::x}, space ::7:x}}"
+			"$verticalGroup": "par l {seq {space :::p, par l {seq l {par b {comp label1::b:p::p, comp label2::b:p::p}, space :::p, par b {comp comboBox1::b:p::p, comp textField1::b:p::p, comp textField2::b:p::p}}, comp label3::l:p::p}, space :::p, comp button1:::p::p, space :::p, comp scrollPane1::::171:x, space :::p}}"
 		} ) {
 			name: "this"
+			"defaultCloseOperation": 3
 			add( new FormComponent( "javax.swing.JLabel" ) {
 				name: "label1"
 				"text": "Функция"
@@ -37,9 +38,20 @@ new FormModel {
 				name: "textField2"
 				"text": "0.001"
 			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button1"
+				"text": "Метод золотого сечения"
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "button1MouseClicked", true ) )
+			} )
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "scrollPane1"
+				add( new FormComponent( "javax.swing.JTextArea" ) {
+					name: "textArea1"
+				} )
+			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 0, 0 )
-			"size": new java.awt.Dimension( 325, 300 )
+			"size": new java.awt.Dimension( 315, 300 )
 		} )
 	}
 }

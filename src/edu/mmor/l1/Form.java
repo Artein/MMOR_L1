@@ -4,6 +4,10 @@
 
 package edu.mmor.l1;
 
+import edu.mmor.l1.Functions.Function10;
+import edu.mmor.l1.Functions.Function13;
+import edu.mmor.l1.MethodsOfOptimization.GoldMethod;
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -29,6 +33,25 @@ public class Form extends JFrame {
         }
     }
 
+    private void button1MouseClicked(MouseEvent e) {
+        // TODO add your code here
+        GoldMethod goldMethod=new GoldMethod();
+        if (comboBox1.getSelectedIndex()==0)
+        {
+            double x=goldMethod.method(-0.5,0.5,Double.parseDouble(textField2.getText()),new Function10());
+            textArea1.setText("Корень функции: "+x);
+            //textArea1.setI
+            textArea1.setText(textArea1.getText()+"\nЗначение функции:"+new Function10().calculate(x));
+        }
+        else
+        {
+            double x=goldMethod.method(0.2,0.95,Double.parseDouble(textField2.getText()),new Function13());
+            textArea1.setText("Корень функции: "+x);
+            //textArea1.setI
+            textArea1.setText(textArea1.getText()+"\nЗначение функции:"+new Function13().calculate(x));
+        }
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         // Generated using JFormDesigner Evaluation license - DTSHNICK DTSHNICK
@@ -38,8 +61,12 @@ public class Form extends JFrame {
         label2 = new JLabel();
         label3 = new JLabel();
         textField2 = new JTextField();
+        button1 = new JButton();
+        scrollPane1 = new JScrollPane();
+        textArea1 = new JTextArea();
 
         //======== this ========
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         Container contentPane = getContentPane();
 
         //---- label1 ----
@@ -69,24 +96,42 @@ public class Form extends JFrame {
         //---- textField2 ----
         textField2.setText("0.001");
 
+        //---- button1 ----
+        button1.setText("\u041c\u0435\u0442\u043e\u0434 \u0437\u043e\u043b\u043e\u0442\u043e\u0433\u043e \u0441\u0435\u0447\u0435\u043d\u0438\u044f");
+        button1.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                button1MouseClicked(e);
+            }
+        });
+
+        //======== scrollPane1 ========
+        {
+            scrollPane1.setViewportView(textArea1);
+        }
+
         GroupLayout contentPaneLayout = new GroupLayout(contentPane);
         contentPane.setLayout(contentPaneLayout);
         contentPaneLayout.setHorizontalGroup(
             contentPaneLayout.createParallelGroup()
                 .addGroup(contentPaneLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addGroup(contentPaneLayout.createParallelGroup()
-                        .addComponent(comboBox1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                        .addComponent(label1))
-                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                     .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-                        .addComponent(label2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(textField1))
-                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                    .addGroup(contentPaneLayout.createParallelGroup()
-                        .addComponent(label3)
-                        .addComponent(textField2, GroupLayout.PREFERRED_SIZE, 51, GroupLayout.PREFERRED_SIZE))
-                    .addContainerGap(17, Short.MAX_VALUE))
+                        .addGroup(contentPaneLayout.createSequentialGroup()
+                            .addGroup(contentPaneLayout.createParallelGroup()
+                                .addComponent(comboBox1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                .addComponent(label1))
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(contentPaneLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                                .addComponent(label2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(textField1))
+                            .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(contentPaneLayout.createParallelGroup()
+                                .addComponent(label3)
+                                .addComponent(textField2, GroupLayout.PREFERRED_SIZE, 51, GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(button1)
+                        .addComponent(scrollPane1))
+                    .addContainerGap(7, Short.MAX_VALUE))
         );
         contentPaneLayout.setVerticalGroup(
             contentPaneLayout.createParallelGroup()
@@ -103,7 +148,11 @@ public class Form extends JFrame {
                                 .addComponent(textField1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                 .addComponent(textField2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
                         .addComponent(label3))
-                    .addContainerGap(214, Short.MAX_VALUE))
+                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(button1)
+                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(scrollPane1, GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
+                    .addContainerGap())
         );
         pack();
         setLocationRelativeTo(getOwner());
@@ -123,5 +172,8 @@ public class Form extends JFrame {
     private JLabel label2;
     private JLabel label3;
     private JTextField textField2;
+    private JButton button1;
+    private JScrollPane scrollPane1;
+    private JTextArea textArea1;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }
