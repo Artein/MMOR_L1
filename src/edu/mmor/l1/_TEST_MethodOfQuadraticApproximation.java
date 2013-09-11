@@ -12,7 +12,7 @@ public class _TEST_MethodOfQuadraticApproximation {
     {
 
         double res = 0.0d;
-        x2 = x1 + dx;   // STEP 1
+        x2 = x1 + dx;   // STEP 12
 
 
 
