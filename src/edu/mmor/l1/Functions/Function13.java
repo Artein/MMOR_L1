@@ -10,8 +10,6 @@ package edu.mmor.l1.Functions;
 public class Function13 extends Function {
     @Override
     public double calculate(double x) {
-        double result;
-        result=-Math.pow(Math.pow(x,2),1/3)-Math.pow(1-Math.pow(x,2),1/3);
-        return result;
+        return -Math.pow(Math.pow(x, 2), 1 / 3.) - Math.pow(1 - Math.pow(x, 2), 1 / 3.);
     }
 }

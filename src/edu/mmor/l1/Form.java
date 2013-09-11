@@ -35,20 +35,14 @@ public class Form extends JFrame {
 
     private void button1MouseClicked(MouseEvent e) {
         // TODO add your code here
-        GoldMethod goldMethod=new GoldMethod();
-        if (comboBox1.getSelectedIndex()==0)
-        {
-            double x=goldMethod.method(-0.5,0.5,Double.parseDouble(textField2.getText()),new Function10());
-            textArea1.setText("Корень функции: "+x);
-            //textArea1.setI
-            textArea1.setText(textArea1.getText()+"\nЗначение функции:"+new Function10().calculate(x));
-        }
-        else
-        {
-            double x=goldMethod.method(0.2,0.95,Double.parseDouble(textField2.getText()),new Function13());
-            textArea1.setText("Корень функции: "+x);
-            //textArea1.setI
-            textArea1.setText(textArea1.getText()+"\nЗначение функции:"+new Function13().calculate(x));
+        if (comboBox1.getSelectedIndex() == 0) {
+            double x = new GoldMethod(-0.5, 0.5, Double.parseDouble(textField2.getText())).calculate(new Function10());
+            textArea1.setText("Корень функции: " + x);
+            textArea1.setText(textArea1.getText() + "\nЗначение функции:" + new Function10().calculate(x));
+        } else {
+            double x = new GoldMethod(0.2, 0.95, Double.parseDouble(textField2.getText())).calculate(new Function13());
+            textArea1.setText("Корень функции: " + x);
+            textArea1.setText(textArea1.getText() + "\nЗначение функции:" + new Function13().calculate(x));
         }
     }
 

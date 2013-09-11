@@ -10,42 +10,50 @@ import edu.mmor.l1.Functions.Function;
  * To change this template use File | Settings | File Templates.
  */
 public class GoldMethod implements IMethod {
+    public GoldMethod(double intervalStart, double intervalEnd, double epsilon)
+    {
+        this.intervalStart  = intervalStart;
+        this.intervalEnd    = intervalEnd;
+        this.epsilon        = epsilon;
+    }
 
     @Override
-    public double method(double a, double b, double eps, Function function)
+    public double calculate(Function function)
     {
-        double x1;
-        double x2;
-        x1=a+0.382*(b-a);
-        x2=a+0.618*(b+a);
+        double x1 = intervalStart + 0.382 * (intervalEnd - intervalStart);
+        double x2 = intervalStart + 0.618 * (intervalEnd + intervalStart);
         double result;
-        double y1;
-        double y2;
-        y1=function.calculate(x1);
-        y2=function.calculate(x2);
+        double y1 = function.calculate(x1);
+        double y2 = function.calculate(x2);
 
-        while ((b-a)<eps)
+        while ((intervalEnd - intervalStart) < epsilon)
         {
-            if (y1<=y2)
+            if (y1 <= y2)
             {
-                a=x1;
-                b=b;
-                x1=x2;
-                y1=function.calculate(x1);
-                x2=a+0.618*(b-a);
-                y2=function.calculate(x2);
+                intervalStart = x1;
+//                intervalEnd=intervalEnd;
+                x1 = x2;
+                y1 = function.calculate(x1);
+                x2 = intervalStart + 0.618 * (intervalEnd - intervalStart);
+                y2 = function.calculate(x2);
             }
             else
             {
-                a=a;
-                b=x2;
-                x2=x1;
-                y2=function.calculate(x2);
-                x1=a+0.382*(b-a);
-                y1=function.calculate(x1);
+//                intervalStart=intervalStart;
+                intervalEnd = x2;
+                x2 = x1;
+                y2 = function.calculate(x2);
+                x1 = intervalStart + 0.382 * (intervalEnd - intervalStart);
+                y1 = function.calculate(x1);
             }
         }
-        result=(a+b)/2;
-        return result;  //To change body of implemented methods use File | Settings | File Templates.
+        result = (intervalStart + intervalEnd) / 2;
+        return result;
     }
+
+    // -----------------------------------------------------------------------------------
+
+    private double intervalStart;
+    private double intervalEnd;
+    private double epsilon;
 }

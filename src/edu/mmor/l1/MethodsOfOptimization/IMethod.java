@@ -10,5 +10,5 @@ import edu.mmor.l1.Functions.Function;
  * To change this template use File | Settings | File Templates.
  */
 public interface IMethod {
-    double method (double a, double b,double eps, Function function);
+    double calculate (Function function);
 }
