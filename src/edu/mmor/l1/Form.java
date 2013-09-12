@@ -48,7 +48,6 @@ public class Form extends JFrame {
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - DTSHNICK DTSHNICK
         label1 = new JLabel();
         comboBox1 = new JComboBox();
         textField1 = new JTextField();
@@ -159,7 +158,6 @@ public class Form extends JFrame {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - DTSHNICK DTSHNICK
     private JLabel label1;
     private JComboBox comboBox1;
     private JTextField textField1;
