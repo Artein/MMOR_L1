@@ -9,8 +9,8 @@ import edu.mmor.l1.Functions.Function;
  * Time: 20:56
  * To change this template use File | Settings | File Templates.
  */
-public class GoldMethod implements IMethod {
-    public GoldMethod(double intervalStart, double intervalEnd, double epsilon)
+public class GoldenRatio implements IMethod {
+    public GoldenRatio(double intervalStart, double intervalEnd, double epsilon)
     {
         this.intervalStart  = intervalStart;
         this.intervalEnd    = intervalEnd;

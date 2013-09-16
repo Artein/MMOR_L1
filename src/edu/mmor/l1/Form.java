@@ -6,7 +6,8 @@ package edu.mmor.l1;
 
 import edu.mmor.l1.Functions.Function10;
 import edu.mmor.l1.Functions.Function13;
-import edu.mmor.l1.MethodsOfOptimization.GoldMethod;
+import edu.mmor.l1.MethodsOfOptimization.GoldenRatio;
+import edu.mmor.l1.MethodsOfOptimization.QuadraticApproximation;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -36,11 +37,15 @@ public class Form extends JFrame {
     private void button1MouseClicked(MouseEvent e) {
         // TODO add your code here
         if (comboBox1.getSelectedIndex() == 0) {
-            double x = new GoldMethod(-0.5, 0.5, Double.parseDouble(textField2.getText())).calculate(new Function10());
+            double x = new GoldenRatio(-0.5, 0.5, Double.parseDouble(textField2.getText())).calculate(new Function10());
+//            double x = new QuadraticApproximation(-0.5, 0.5, Double.parseDouble(textField2.getText())).
+//                    calculate(new Function10());
             textArea1.setText("Корень функции: " + x);
             textArea1.setText(textArea1.getText() + "\nЗначение функции:" + new Function10().calculate(x));
         } else {
-            double x = new GoldMethod(0.2, 0.95, Double.parseDouble(textField2.getText())).calculate(new Function13());
+            double x = new GoldenRatio(0.2, 0.95, Double.parseDouble(textField2.getText())).calculate(new Function13());
+//            double x = new QuadraticApproximation(-0.2, 0.95, Double.parseDouble(textField2.getText())).
+//                    calculate(new Function13());
             textArea1.setText("Корень функции: " + x);
             textArea1.setText(textArea1.getText() + "\nЗначение функции:" + new Function13().calculate(x));
         }
